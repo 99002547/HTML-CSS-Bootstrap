@@ -1,0 +1,72 @@
+<html> 
+<head> 
+<title> Ramp-Up Activity</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../HTML, CSS, Bootstrap/employeeRegistrationForm.css">
+<script type="text/javascript" src="../HTML, CSS, Bootstrap/js/employeeRegistrationForm.js"></script>
+</head> 
+  
+<body> 
+<h1 style="text-align: center;">Employee Registration Form</h1>
+<div class="container"> 
+<form name="RegForm">
+<div class="row">
+<div class="col-12">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <span class="text-danger">*</span>
+    <input type="text" class="form-control" id="name" placeholder="Enter username" name="name" onChange="validateName()">
+    <div id="nameError" class="errorMsg"></div>
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-group">
+    <label for="email">E-Mail</label>
+    <span class="text-danger">*</span>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" onChange="validateEmail()">
+    <div id="emailError" class="errorMsg" ></div>
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-group">
+    <label for="email">Phone</label>
+    <span class="text-danger">*</span>
+    <input type="number" class="form-control" id="phone" placeholder="Enter Phone number" name="phone" onChange="validatePhone()">
+    <div id="phoneError" class="errorMsg"></div>
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-group">
+    <label for="location">Location</label>
+    <span class="text-danger">*</span>
+    <select type="text" id="location" name="location" class="form-control" onmouseover="locationSelectOptions()">
+     <option value=""> --Select location--</option> 
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-group">
+    <label for="qualification">Qualification</label>
+    <input type="radio" name="qualification"  value="post Graduate" onclick="showSpecialization()"> Post Graduate 
+    <input type="radio" name="qualification" value="under Graduate" onclick="showSpecialization()"> Under Graduate
+  </div>
+  <div class="form-group" id="hid" style="display:none">
+    <label for="specialization" >Specialization</label>
+    <input type="text" class="form-control" id="specialization" placeholder="Enter Specalization" name="specialization" >
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-group">
+    <button  type="submit" class="btn btn-primary" onClick="formValidate()">Submit</button>
+    <button  type="reset" class="btn btn-primary">Reset</button>
+  </div>
+</div>
+</div>
+</form>
+</div>
+</body> 
+</html> 
