@@ -45,7 +45,8 @@
     <label for="location">Location</label>
     <span class="text-danger">*</span>
     <select type="text" id="location" name="location" class="form-control" onmouseover="locationSelectOptions()">
-     <option value=""> --Select location--</option> 
+     <option value> --Select location--</option> 
+    </select>
   </div>
 </div>
 <div class="col-12">
@@ -56,7 +57,7 @@
   </div>
   <div class="form-group" id="hid" style="display:none">
     <label for="specialization" >Specialization</label>
-    <input type="text" class="form-control" id="specialization" placeholder="Enter Specalization" name="specialization" >
+    <input type="text" class="form-control" id="specialization" placeholder="Enter Specalization" name="specialization" onChange="validateSpecialization()">
   </div>
 </div>
 <div class="col-12">

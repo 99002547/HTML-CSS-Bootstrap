@@ -1,10 +1,14 @@
 var nameFlag=0
 var emailFlag=0
 var phoneFlag=0
+var qualificationFlag=0
+var specializationFlag=0
 var email
 var name
 var phone
 var selectedLocationValue=""
+var qualification=""
+var specialization=""
 var locationChoices = ["Mumbai","Banglore","Mysore","Chennai"];
 const minimumLengthRequiredForNameErrorMessage="Name should have minimum of 3 characters"
 const maximumLengthAcceptedForNameErrorMessage="Name exceeds 255 characters"
@@ -19,9 +23,9 @@ function locationSelectOptions() {
     var selectHTML=document.getElementById("location")
     selectHTML.innerHTML = "<select><option value>--Select Location--</option>"
     for(i = 0; i < locationChoices.length; i = i + 1) {
-        selectHTML.innerHTML += "<option value='" + locationChoices[i] + "'>" + locationChoices[i] + "</option>";
+        selectHTML.innerHTML += "<option value='" + locationChoices[i] + "'>" + locationChoices[i] + "</option>"
     }
-    selectHTML.innerHTML += "</select>";
+    selectHTML.innerHTML += "</select>"
 }
 function validateName() {
   var regex = /^[a-zA-Z]+[\sa-zA-Z]+$/;
@@ -89,11 +93,30 @@ function validateLocation() {
 }
 
 function showSpecialization() {
-  document.getElementById("hid").style.display="block";
+  document.getElementById("hid").style.display="block"
+  qualificationFlag=1
+  var qualificationChecked=document.getElementsByName("qualification")
+  for(i=0;i<qualificationChecked.length;i++)
+    if(qualificationChecked[i].checked)
+      qualification=qualificationChecked[i].value
 }
 
+function validateSpecialization(){
+  specializationFlag=1
+  specialization=document.getElementById("specialization").value
+}
 function formValidate() { 
   validateLocation()
-  if(nameFlag!=0 && emailFlag.length!=0 && phoneFlag.length!=0 && selectedLocationValue.options[selectedLocationValue.selectedIndex].value)
-    alert("Employee registered successfully with details: \nName="+name+"\nEmail="+email+"\nPhone Number="+phone+"\nLocation="+selectedLocationValue.options[selectedLocationValue.selectedIndex].value)
+  if(nameFlag!=0 && emailFlag.length!=0 && phoneFlag.length!=0 && selectedLocationValue.options[selectedLocationValue.selectedIndex].value
+    && qualificationFlag==1 && specializationFlag==1)
+    alert("Employee registered successfully with details: \nName="+name+"\nEmail="+email+"\nPhone Number="+phone+"\nLocation="
+    +selectedLocationValue.options[selectedLocationValue.selectedIndex].value+"\nQualification="+qualification+
+    "\nSpecialization="+specialization)
+  else if(nameFlag!=0 && emailFlag.length!=0 && phoneFlag.length!=0 && selectedLocationValue.options[selectedLocationValue.selectedIndex].value
+    && qualificationFlag==1)
+    alert("Employee registered successfully with details: \nName="+name+"\nEmail="+email+"\nPhone Number="+phone+"\nLocation="
+    +selectedLocationValue.options[selectedLocationValue.selectedIndex].value+"\nQualification="+qualification)
+  else
+    alert("Employee registered successfully with details: \nName="+name+"\nEmail="+email+"\nPhone Number="+phone+"\nLocation="
+    +selectedLocationValue.options[selectedLocationValue.selectedIndex].value)
 }
